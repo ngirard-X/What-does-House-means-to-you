@@ -2,7 +2,7 @@
 
 Credits::Credits(sf::Font& font)
     : m_font(font), m_visible(false), m_endLine(font, "", 30), m_title(font, "- Credits -", 42), m_dev(font, "Developpeur : Nolhan Girard", 32),
-    m_artist(font, "Artiste : Lia", 32), m_hint(font, "Ce jeu avait pour but de dénoncer ces violances qui ne sont pas punies; Appuyez sur ESPACE pour retourner au menu", 24)
+    m_artist(font, "Artiste : Lia", 32), m_hint(font, "Ce jeu avait pour but de dénoncer ces violences qui ne sont pas punies; Appuyez sur ESPACE pour retourner au menu", 24)
 {
     m_title.setFillColor(sf::Color(240, 220, 255));
     centerText(m_title, 350.f);

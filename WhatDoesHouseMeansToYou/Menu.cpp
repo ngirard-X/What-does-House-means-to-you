@@ -17,7 +17,7 @@ Menu::Menu(sf::Font& font)
     m_subtitle.setFillColor(sf::Color(136, 136, 187));
     m_subtitle.setLetterSpacing(3.f);
 
-    m_prompt.setString("Vous incarnnez un enquêteur de police tourmenté par une affaire de meutre dont le coupable est reconnus mais sans motif valable, trouvé ce dernier");
+    m_prompt.setString("Vous incarnez un enquêteur de police tourmenté par une affaire de meurtre dont le coupable est reconnu mais sans motif valable, trouvez ce dernier");
     m_prompt.setFillColor(sf::Color(180, 160, 230));
     m_prompt.setLetterSpacing(1.f);
 

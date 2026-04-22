@@ -50,7 +50,7 @@ void Scene_changing::buildScenes()
 
         s.id = "chapter2";
         s.bgPath = "assets/ville.png";
-        s.charPath = "assets/enqueteur.png";
+        s.charPath = "assets/sdf.png";
         s.nextScene = "chapter3";
         s.dialogues = {
             {"Narrateur", "Dans la rue, un vieil homme trébuche sous la pluie."},
@@ -140,7 +140,7 @@ void Scene_changing::buildScenes()
 
         s.id = "chapter7";
         s.bgPath = "assets/aube.png";
-        s.charPath = "assets/char_hero.png";
+        s.charPath = "assets/";
         s.nextScene = "";
         s.isEnd = true;
         s.dialogues = {

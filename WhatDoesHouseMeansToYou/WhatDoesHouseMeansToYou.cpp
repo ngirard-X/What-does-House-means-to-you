@@ -36,139 +36,131 @@ int main()
 
     std::map<std::string, Scene> scenes;
 
-    scenes["prologue"] = 
+    scenes["prologue"] = {
+    "assets/bureauS.png", "assets/enqueteur.png", "ch1",
     {
-        "assets/bureauS.png", "assets/enqueteur.png", "ch1",
-        {
-         {"Enquêteur", "C'est pas possible déjà 4 ans que je réfléchie et rien"},
-         {"Enquêteur", "Pas même un indice, pas une piste"},
-         {"Enquêteur", "Une coupable toute désignée, la piste est sûr mais aucun motif et preuve d'une quelconque raison"},
-         {"Enquêteur", "Je n'ai plus d'autre choix que d'aller voir la première concerné"},
-         {"Enquêteur", "J'ai de toute manière toujours eût envie de la rencontrer"},
-        }
+        {"Enquêteur", "C'est pas possible, déjà 4 ans que je réfléchis et rien."},
+        {"Enquêteur", "Pas même un indice, pas une seule piste."},
+        {"Enquêteur", "Une coupable toute désignée, la piste est sûre, mais aucun motif ni aucune preuve d'une quelconque raison."},
+        {"Enquêteur", "Je n'ai plus d'autres choix que d'aller voir la première concernée."},
+        {"Enquêteur", "J'ai, de toutes manières, toujours eu envie de la rencontrer."},
+    }
     };
 
-    scenes["ch1"] = 
-    {
+    scenes["ch1"] = {
         "assets/metro.png", "assets/enqueteur.png", "ch2",
         {
-         {"Narrateur", "*bruits de métro et de foule*"},
-         {"Enquêteur", "Toujours aussi plein pour mon plus grand désespoir"},
-         {"Enquêteur", "Je devrais me dêpecher de sortir d'ici sinon je vais mourir de suffocation"},
+            {"Narrateur", "*bruits de métro et de foule*"},
+            {"Enquêteur", "Toujours aussi bondé, pour mon plus grand désespoir."},
+            {"Enquêteur", "Je devrais me dépêcher de sortir d'ici, sinon je vais mourir par suffocation."},
         }
     };
 
-    scenes["ch2"] = 
-    {
-        "assets/ville.png", "assets/enqueteur.png", "ch3",
+    scenes["ch2"] = {
+        "assets/ville.png", "assets/sdf.png", "ch3",
         {
-         {"Enquêteur", "Vieil homme dans la rue, on dirait qu'il souhaite me parler"},
-         {"Vieil Homme", "Bonsoir jeune homme aurais-tu une pièce pour moi ?"},
-         {"Enquêteur", "Navré je n'ai rien, je n'ai pas pris mon portefeuille"},
-         {"Vieil Homme", "Ce n'est rien, mais rend moi un service alors"},
-         {"Enquêteur", "Lequel ? Je n'ai vraiment rien sur moi pas même à manger"},
-         {"Vieil Homme", "Ca j'ai bien compris je ne suis pas sénile tout de même"},
-         {"Narrateur", "*dit-il en souriant*"},
-         {"Vieil Homme", "Non plus sérieusement je souhaite que quoique soit tes choix dans le futur penses à prendre le temps"},
-         {"Vieil Homme", "Des mauvais choix peuvent mener à des mauvaises surprises, aussi sache que les gens ont souvent leurs raison"},
-         {"Vieil Homme", "Bon peu importe, tu ne devrais pas attendre trop longtemps va à tes occupations tu ne voudrais pas finir comme moi"},
-         {"Narrateur", "*le viel homme rigolant pendant que l'enquêteur retourne sur le chemin de la prison*"},
+            {"Enquêteur", "Vieil homme dans la rue : on dirait qu'il souhaite me parler."},
+            {"Vieil Homme", "Bonsoir jeune homme, aurais-tu une pièce pour moi ?"},
+            {"Enquêteur", "Navré, je n'ai rien, je n'ai pas pris mon portefeuille."},
+            {"Vieil Homme", "Ce n'est rien, mais rends-moi un service, alors."},
+            {"Enquêteur", "Lequel ? Je n'ai vraiment rien sur moi, pas même à manger."},
+            {"Vieil Homme", "Ça, j'ai bien compris, je ne suis pas sénile, tout de même."},
+            {"Narrateur", "*dit-il en souriant*"},
+            {"Vieil Homme", "Non, plus sérieusement, je souhaite que, quels que soient tes choix dans le futur, tu penses à prendre le temps."},
+            {"Vieil Homme", "Des mauvais choix peuvent mener à de mauvaises surprises, aussi sache que les gens ont souvent leurs raisons."},
+            {"Vieil Homme", "Bon, peu importe, tu ne devrais pas attendre trop longtemps, va à tes occupations, tu ne voudrais pas finir comme moi."},
+            {"Narrateur", "*le vieil homme rigolant pendant que l'enquêteur retourne sur le chemin de la prison*"},
         }
     };
 
-    scenes["ch3"] = 
-    {
-        "assets/prison.png", "assets/prisonniere.png", "",
+    scenes["ch3"] = {
+        "assets/prison.png", "assets/prisonniere_prison.png", "",
         {
-         {"Enquêteur", "Enfin devant elle"},
-         {"Narrateur", "*malgrés l'ambiance pesante*"},
-         {"Narrateur", "*l'enqêteur se dit que c'est sa seule chance et prend son courage à deux mains et débute la conversation*"},
-         {"Enquêteur", "Bonsoir tu ne me connais pas mais je suis enquêteur et je viens t'interroger sur l'affaire de meutre"},
-         {"Enquêteur", "Je suis vraiment désolé de venir te déranger mais ça fait 4 ans que j'enquête"},
-         {"Enquêteur", "Et malgrés cela rien. Je n'ai trouvé aucune raison qui pourrait t'avoir poussé à ce crime"},
-         {"Enquêteur", "J'en suis même à me demander si tu n'as pas était piégé, si c'est le cas je peux t'aider"},
-         {"Narrateur", "*dit-il d'une fois pleine d'empathie*"},
-         {"Enquêteur", "Alors si tu le veux bien éclaire ma lanterne je t'en serais infiniment reconnaissant"},
-         {"Enquêteur", "Je t'aiderais à raccourcir ta peine si la raison le permet"},
-         {"Narrateur", "*la femme soupir, unn soupir qui permet de comprendre que la raison est complexe*"},
-         {"Narrateur", "*que ce n'était ni par folie, ni par plaisir*"},
-         {"Prisonniere", "Très bien j'accepte, ais-je vraiment le choix après tout"},
-         {"Prisonniere", "Si je ne le fait, à cause de ces 14 meutres je resterait ici pour le restant de mes jours"},
-         {"Prisonniere", "Je vais t'expliquer en partant du début, la raison de mon crime"},
-         {"Prisonniere", "Pour toi que veut dire maison, qu'est-ce que ca représente, signifie"},
-         {"Prisonniere", "Certainement ce lieu d'enfance, ce lieu où l'on se sent en sécurité, aimé et protégé"},
-         {"Prisonniere", "Cet havre de paix qui plus on prend en âge plus semblait comme la meilleure partie de notre vie"},
-         {"Prisonniere", "Pour moi c'est tout l'inverse, le seul mot assez fort pour le décrire est l'ENFER ........."},
+            {"Enquêteur", "Enfin devant elle."},
+            {"Narrateur", "*malgré l'ambiance pesante*"},
+            {"Narrateur", "*l'enquêteur se dit que c'est sa seule chance et prend son courage à deux mains pour débuter la conversation*"},
+            {"Enquêteur", "Bonsoir, tu ne me connais pas, mais je suis enquêteur et je viens t'interroger sur l'affaire de meurtre."},
+            {"Enquêteur", "Je suis vraiment désolé de venir te déranger, mais ça fait 4 ans que j'enquête."},
+            {"Enquêteur", "Et malgré cela, rien. Je n'ai trouvé aucune raison qui pourrait t'avoir poussée à ce crime."},
+            {"Enquêteur", "J'en suis même à me demander si tu n'as pas été piégée, si c'est le cas, je peux t'aider."},
+            {"Narrateur", "*dit-il d'une voix pleine d'empathie*"},
+            {"Enquêteur", "Alors, si tu le veux bien, éclaire ma lanterne, je t'en serais infiniment reconnaissant."},
+            {"Enquêteur", "Je t'aiderai à raccourcir ta peine si la raison le permet."},
+            {"Narrateur", "*la femme soupire, un soupir qui permet de comprendre que la raison est complexe*"},
+            {"Narrateur", "*que ce n'était ni par folie, ni par plaisir*"},
+            {"Prisonniere", "Très bien, j'accepte, ai-je vraiment le choix après tout ?"},
+            {"Prisonniere", "Si je ne le fais, à cause de ces 14 meurtres, je resterai ici pour le restant de mes jours."},
+            {"Prisonniere", "Je vais t'expliquer, en partant du commencement, la raison de mon crime."},
+            {"Prisonniere", "Pour toi, que t'inspire le mot 'Maison' ? Qu'est-ce que cela représente, que signifie-t-il pour toi ?"},
+            {"Prisonniere", "Certainement ce lieu d'enfance, ce lieu où l'on se sent en sécurité, aimé et protégé."},
+            {"Prisonniere", "Cet havre de paix qui, en prenant de l'âge, nous rappelle la meilleure partie de notre vie."},
+            {"Prisonniere", "Pour moi, c'est tout l'inverse, le seul mot assez fort pour le décrire est l'ENFER ........."},
         },
         false, true, false
     };
 
-    scenes["ch3_non"] = 
-    {
-        "assets/prison.png", "assets/prisonniere.png", "",
+    scenes["ch3_non"] = {
+        "assets/prison.png", "assets/prisonniere_prison.png", "",
         {
-         {"Prisonniere", "Je voulais t'expliquer mais tu ne veux plus. Tu es encore plus fou que moi, pars maintenant"},
+            {"Prisonniere", "Je voulais t'expliquer, mais tu ne veux plus. Tu es encore plus fou que moi, pars maintenant."},
         },
         true, false, false
     };
 
-    scenes["ch4"] = 
-    {
+    scenes["ch4"] = {
         "assets/entree.png", "assets/prisonniere.png", "ch5",
         {
-         {"Narrateur", "*vous vous retrouvez projetez dans les souvenirs de la femme *"},
-         {"Narrateur", "*avec elle comme contrice de sa propre histoire*"},
-         {"Prisonniere", "Voici la maison de mon enfance. Mon enfer à porter de main"},
-         {"Prisonniere", "Je passais le plus clair de mon temps dehors"},
-         {"Prisonniere", "Je rentrais seulement par necéssité et non par choix"},
-         {"Prisonniere", "Avec la mort de ma Mère tout a changé"},
-         {"Prisonniere", "Les choses sont devenues encore pires"},
-         {"Prisonniere", "Pas un jour passé sans que mon Père m'attende tous les soirs ici, juste derrière cette porte"},
+            {"Narrateur", "*vous vous retrouvez projeté dans les souvenirs de la femme*"},
+            {"Narrateur", "*avec elle comme conteuse de sa propre histoire*"},
+            {"Prisonniere", "Voici la maison de mon enfance. Mon enfer à portée de main."},
+            {"Prisonniere", "Je passais le plus clair de mon temps dehors."},
+            {"Prisonniere", "Je rentrais seulement par nécessité et non par choix."},
+            {"Prisonniere", "Avec la mort de ma mère, tout a changé."},
+            {"Prisonniere", "Les choses sont devenues encore pires."},
+            {"Prisonniere", "Pas un jour passé sans que mon père m'attende tous les soirs ici, juste derrière cette porte."},
         }
     };
 
-    scenes["ch5"] = 
-    {
+    scenes["ch5"] = {
         "assets/salon.png", "assets/prisonniere.png", "ch6",
         {
-            {"Narrateur", "*vous entrez subitement dans la maison, comme si vous voliez tel un fantome*"},
-            {"Prisonniere", "Et une fois à l'intérieur mon Père ou Satan comme j'aime aussi l'appelé"},
-            {"Prisonniere", "Ne se privait pas de lever la main sur moi jusqu'à être 'détendu' comme il disait"},
-            {"Prisonniere", "Tous les soirs la même routine et ce corps qui peu à peu criait de douleur"},
-            {"Prisonniere", "Mon seul réconfort était cette pièce que je voyais comme mon château fort"},
-            {"Prisonniere", "'Le paradis' comme je l'appelais, ma chambre"},
+            {"Narrateur", "*vous entrez subitement dans la maison, comme si vous voliez tel un fantôme*"},
+            {"Prisonniere", "Et une fois à l'intérieur, mon père, ou Satan comme j'aime aussi l'appeler,"},
+            {"Prisonniere", "ne se privait pas de lever la main sur moi jusqu'à être « détendu », comme il disait."},
+            {"Prisonniere", "Tous les soirs, la même routine et ce corps qui, peu à peu, criait de douleur."},
+            {"Prisonniere", "Mon seul réconfort était cette pièce que je voyais comme mon château fort."},
+            {"Prisonniere", "« Le paradis », comme je l'appelais, ma chambre."},
         }
     };
 
-    scenes["ch6"] = 
-    {
+    scenes["ch6"] = {
         "assets/chambre.png", "assets/prisonniere.png", "ch7",
         {
-            {"Prisonniere", "A la maison je m'attardait de plus en plus souvent ici"},
-            {"Prisonniere", "Car comme son deuil a été si rapide mon père a vite retrouvé une femme"},
-            {"Prisonniere", "Qui était à son image si je pu dire, aussi violente voir même plus cruelle"},
-            {"Prisonniere", "Parfois la nuit pendant que j'écoutais de la musique, la seule chose qui me permettait de tenir"},
-            {"Prisonniere", "Mon petit réconfort, elle décidait que c'en était trop"},
-            {"Prisonniere", "Au lieu de m'avertir que ça l'agacait elle m'attrapait par le bras, prenait mes habits et me jetait dehors"},
-            {"Prisonniere", "Le tout en m'insultant de noms d'une violence indescriptible pour une enfant"},
+            {"Prisonniere", "À la maison, je m'attardais de plus en plus souvent ici."},
+            {"Prisonniere", "Car, mon père ayant vite fait son deuil, il a rapidement retrouvé une femme."},
+            {"Prisonniere", "Qui était à son image, si je puis dire, violente, voire même cruelle."},
+            {"Prisonniere", "Parfois, la nuit, pendant que j'écoutais de la musique, la seule chose qui me permettait de tenir,"},
+            {"Prisonniere", "mon petit réconfort, elle décidait que c'en était trop."},
+            {"Prisonniere", "Au lieu de m'avertir que ça l'agacait, elle m'attrapait par le bras, prenait mes habits et me jetait dehors."},
+            {"Prisonniere", "Le tout en m'insultant de noms d'une violence indescriptible pour une enfant."},
         }
     };
 
     scenes["ch7"] = {
-        "assets/aube.png", "assets/char_hero.png", "",
+        "assets/aube.png", "assets/", "",
         {
-            {"Prisonniere", "Un jour j'en ai eu assez de ces tourments"},
-            {"Prisonniere", "Pendant Noël, avec tous mes détracteurs réunis ensemble"},
-            {"Prisonniere", "Je pris un couteau dans la cuisine, attendis la tombée de la nuit et dans leur sommeil tua"},
-            {"Prisonniere", "Sans hésitation, toutes les personnes présentes, tous ces démons qui hantaient ma vie"},
-            {"Prisonniere", "Puis je resta assis dans le salon pendant ce qui me paraissa une éternité jusqu'à ce que la police arrive"},
-            {"Prisonniere", "Avertie par un voisin à cause des cris de douleur"},
-            {"Prisonniere", "Et me voilà maintenant, bloquée ici, car j'ai choisi de me libéré plutôt que de continuer à subir"},
-            {"Prisonniere", "Qu'en penses-tu, toi qui joue, crois-tu que les violences sur léquelles on ferme les yeux peuvent être punient ?"},
-            {"Prisonniere", "Penses-tu que si aucune aide ne vient il est mieux de se libérer de soit même au prix de l'enfermement ?"},
-            {"Prisonniere", "Il ne faut pas négliger ces violance encore plus quand cela concerne des enfants"},
+            {"Prisonniere", "Un jour, j'en ai eu assez de ces tourments."},
+            {"Prisonniere", "Le soir de Noël, avec tous mes bourreaux réunis,"},
+            {"Prisonniere", "je pris un couteau dans la cuisine, attendis la tombée de la nuit et, dans leur sommeil,"},
+            {"Prisonniere", "les tua sans hésitation, tous ces démons qui hantaient ma vie."},
+            {"Prisonniere", "Puis je restais assise dans le salon pendant ce qui me paraissait une éternité, jusqu'à ce que la police arrive."},
+            {"Prisonniere", "Alertée par un voisin à cause des cris de douleur."},
+            {"Prisonniere", "Et me voilà maintenant, enfermée ici, car j'ai fait le choix de me libérer plutôt que de continuer à subir."},
+            {"Prisonniere", "Qu'en penses-tu, toi qui joues : crois-tu que les violences sur lesquelles on ferme les yeux doivent être punies ?"},
+            {"Prisonniere", "Penses-tu que, si aucune aide ne vient, il est mieux de se libérer soi-même, au prix de l'enfermement ?"},
+            {"Prisonniere", "Il ne faut pas négliger ces violences, encore plus quand cela concerne des enfants."},
         },
-        false, false, true
+		false, false, true
     };
 
     std::string currentScene = "prologue";
