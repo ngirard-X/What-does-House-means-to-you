@@ -1,132 +1,202 @@
 #include "scene_changing.h"
+#include <iostream>
 
-scene_changing::scene_changing() : nextSceneId("prologue1"), chapter(0), transitionDuration(1.0f), waitForClick(true)
-{}
-
-void scene_changing::changeScene(const std::string& sceneId, sf::Texture& backgroundTexture, sf::Sprite& backgroundSprite, sf::Music& music, sf::Text& dialogue)
+Scene_changing::Scene_changing() 
 {
-	nextSceneId = sceneId;
+    buildScenes();
+}
 
-	if (sceneId == "prologue1")
-	{
-		backgroundTexture.loadFromFile("assets/bureauS.png");
-		backgroundSprite.setTexture(backgroundTexture);
+void Scene_changing::buildScenes() 
+{
+    // PROLOGUE
+    {
+        SceneData s;
 
-		music.stop();
-		music.openFromFile("assets/prologue_music.ogg");
-		music.play();
+        s.id = "prologue";
+        s.bgPath = "assets/bureauS.png";
+        s.charPath = "assets/enqueteur.png";
+        s.nextScene = "chapter1";
+        s.dialogues = {
+            {"Narrateur", "Une ville grise sous une pluie d'automne incessante."},
+            {"Narrateur", "Tu reviens après dix ans d'absence."},
+            {"Toi", "Pourquoi suis-je revenu ici ?"},
+            {"Narrateur", "Une lettre anonyme : « Reviens. Tout brûle. »"}
+        };
 
-		dialogue.setString("This is the prologue. Welcome to the story.");
+        scenes["prologue"] = s;
+    }
 
-		nextSceneId = "chapter1";
-	}
+    // CHAPITRE 1 - métro
+    {
+        SceneData s;
 
-	else if (sceneId == "chapter1")
-	{
-		backgroundTexture.loadFromFile("assets/ville.png");
-		backgroundSprite.setTexture(backgroundTexture);
+        s.id = "chapter1";
+        s.bgPath = "assets/metro.png";
+        s.charPath = "assets/enqueteur.png";
+        s.nextScene = "chapter2";
+        s.dialogues = {
+            {"Toi", "Cette gare... rien n'a changé."},
+            {"Narrateur", "Les mêmes tuiles cassées, la même odeur de diesel."},
+            {"Toi", "Mais la ville semble... différente."},
+            {"Narrateur", "Quelque chose de grave s'est passé."}
+        };
 
-		music.stop();
-		music.openFromFile("assets/chapter1_music.ogg");
-		music.play();
+        scenes["chapter1"] = s;
+    }
 
-		dialogue.setString("This is the first scene of chapter 1.");
+    // CHAPITRE 2 - Ville
+    {
+        SceneData s;
 
-		nextSceneId = "chapter2";
-	}
+        s.id = "chapter2";
+        s.bgPath = "assets/ville.png";
+        s.charPath = "assets/enqueteur.png";
+        s.nextScene = "chapter3";
+        s.dialogues = {
+            {"Narrateur", "Dans la rue, un vieil homme trébuche sous la pluie."},
+            {"Toi", "Je n'ai pas le temps de m'arrêter..."},
+            {"Vieil Homme", "Merci quand même, jeune homme... Marie parlait de toi."},
+            {"Toi", "Marie ? Ma mère ?"}
+        };
 
-	else if (sceneId == "chapter2")
-	{
-		backgroundTexture.loadFromFile("assets/metro.png");
-		backgroundSprite.setTexture(backgroundTexture);
+        scenes["chapter2"] = s;
+    }
 
-		music.stop();
-		music.openFromFile("assets/chapter2_music.ogg");
-		music.play();
+    // CHAPITRE 3 - Prison
+    {
+        SceneData s;
 
-		dialogue.setString("This is the first scene of chapter 2.");
+        s.id = "chapter3";
+        s.bgPath = "assets/prison.png";
+        s.charPath = "assets/prisonniere_prison.png";
+        s.nextScene = "chapter4";
+        s.dialogues = {
+            {"Narrateur", "Ton quartier d'enfance est méconnaissable."},
+            {"Toi", "Les immeubles à moitié démolis..."},
+            {"Narrateur", "La « rénovation urbaine » a tout rasé."},
+            {"Toi", "Et la maison de maman ?"}
+        };
 
-		nextSceneId = "chapter3";
-	}
+        scenes["chapter3"] = s;
+    }
 
-	else if (sceneId == "chapter3")
-	{
-		backgroundTexture.loadFromFile("assets/prison.png");
-		backgroundSprite.setTexture(backgroundTexture);
+    // CHAPITRE 4 - Entree
+    {
+        SceneData s;
 
-		music.stop();
-		music.openFromFile("assets/chapter3_music.ogg");
-		music.play();
+        s.id = "chapter4";
+        s.bgPath = "assets/entree.png";
+        s.charPath = "assets/prisonniere.png";
+        s.nextScene = "chapter5";
+        s.dialogues = {
+            {"Homme Masqué", "Le promoteur brûle tout pour ses tours de luxe."},
+            {"Homme Masqué", "J'ai les preuves, mais personne n'ose parler."},
+            {"Toi", "Pourquoi me le dire à moi ?"},
+            {"Homme Masqué", "Parce que tu es le fils de Marie."}
+        };
 
-		dialogue.setString("This is the first scene of chapter 3.");
+        scenes["chapter4"] = s;
+    }
 
-		nextSceneId = "chapter4";
-	}
-	
-	else if (sceneId == "chapter4")
-	{
-		backgroundTexture.loadFromFile("assets/prison.png");
-		backgroundSprite.setTexture(backgroundTexture);
+    // CHAPITRE 5 - Salon
+    {
+        SceneData s;
 
-		music.stop();
-		music.openFromFile("assets/chapter3_music.ogg");
-		music.play();
+        s.id = "chapter5";
+        s.bgPath = "assets/salon.png";
+        s.charPath = "assets/prisonniere.png";
+        s.nextScene = "chapter6";
+        s.dialogues = {
+            {"Narrateur", "La maison de ton enfance est encore debout... à peine."},
+            {"Toi", "Maman..."},
+            {"Narrateur", "Sur la table, sa dernière lettre."},
+            {"Maman", "« Je t'attendrai toujours. Ici, c'est chez toi. »"}
+        };
 
-		dialogue.setString("This is the first scene of chapter 4.");
+        scenes["chapter5"] = s;
+    }
 
-		nextSceneId = "chapter5";
-	}
+    // CHAPITRE 6 - Chambre
+    {
+        SceneData s;
 
-	else if (sceneId == "chapter5")
-	{
-		backgroundTexture.loadFromFile("assets/prison.png");
-		backgroundSprite.setTexture(backgroundTexture);
+        s.id = "chapter6";
+        s.bgPath = "assets/chambre.png";
+        s.charPath = "assets/prisonniere.png";
+        s.nextScene = "chapter7";
+        s.dialogues = {
+            {"Narrateur", "Le train de nuit part dans une heure."},
+            {"Toi", "Est-ce que cette ville peut encore être ma maison ?"},
+            {"Narrateur", "Les cendres de ton passé fument encore."},
+            {"Toi", "Je reste. Pour elle."}
+        };
 
-		music.stop();
-		music.openFromFile("assets/chapter3_music.ogg");
-		music.play();
+        scenes["chapter6"] = s;
+    }
 
-		dialogue.setString("This is the first scene of chapter 5.");
+    // CHAPITRE 7 - Credits
+    {
+        SceneData s;
 
-		nextSceneId = "chapter6";
-	}
+        s.id = "chapter7";
+        s.bgPath = "assets/aube.png";
+        s.charPath = "assets/char_hero.png";
+        s.nextScene = "";
+        s.isEnd = true;
+        s.dialogues = {
+            {"Narrateur", "L'aube se lève sur la ville blessée."},
+            {"Toi", "Tout ce chemin pour comprendre ce que « maison » voulait dire."},
+            {"Narrateur", "La maison, c'est là où ton cœur reste."},
+            {"Toi", "Ici. Pour toujours."},
+            {"Narrateur", "FIN"}
+        };
 
-	else if (sceneId == "chapter6")
-	{
-		backgroundTexture.loadFromFile("assets/prison.png");
-		backgroundSprite.setTexture(backgroundTexture);
+        scenes["chapter7"] = s;
+    }
+}
 
-		music.stop();
-		music.openFromFile("assets/chapter3_music.ogg");
-		music.play();
+bool Scene_changing::load(const std::string& sceneId, sf::Texture& bgTex, sf::Sprite& bgSprite,
+    sf::Texture& charTex, sf::Sprite& charSprite, sf::Text& speaker, sf::Text& dialogue) 
+{
 
-		dialogue.setString("This is the first scene of chapter 5.");
+    auto it = scenes.find(sceneId);
 
-		nextSceneId = "ending";
-	}
+    if (it == scenes.end()) 
+    {
+        std::cerr << "Scène introuvable: " << sceneId << "\n";
 
-	else if (sceneId == "ending")
-	{
-		backgroundTexture.loadFromFile("assets/ending.png");
-		backgroundSprite.setTexture(backgroundTexture);
-		music.stop();
-		music.openFromFile("assets/ending_music.ogg");
-		music.play();
-		dialogue.setString("This is the ending of the story.");
+        return false;
+    }
 
-		nextSceneId = "credits";
-	}
-	else if (sceneId == "credits")
-	{
-		backgroundTexture.loadFromFile("assets/credits.png");
-		backgroundSprite.setTexture(backgroundTexture);
-		music.stop();
-		music.openFromFile("assets/credits_music.ogg");
-		music.play();
-		dialogue.setString("Credits:\n\nDeveloper: Your Name\nArtist: Artist Name\nMusic: Musician Name");
-	}
-	else
-	{
-		dialogue.setString("Scene not found.");
-	}
+    const SceneData& scene = it->second;
+
+    if (!scene.bgPath.empty() && bgTex.loadFromFile(scene.bgPath)) 
+    {
+        bgSprite.setTexture(bgTex);
+        bgSprite.setScale({1920.f / bgTex.getSize().x, 1080.f / bgTex.getSize().y});
+    }
+
+    if (!scene.charPath.empty() && charTex.loadFromFile(scene.charPath)) 
+    {
+        charSprite.setTexture(charTex);
+
+        float scale = 750.f / charTex.getSize().y;
+
+        charSprite.setScale({scale, scale});
+    }
+
+    if (!scene.dialogues.empty()) 
+    {
+        speaker.setString(scene.dialogues[0].speaker);
+        dialogue.setString(scene.dialogues[0].text);
+    }
+
+    return true;
+}
+
+const SceneData* Scene_changing::get(const std::string& sceneId) const 
+{
+    auto it = scenes.find(sceneId);
+
+    return it != scenes.end() ? &it->second : nullptr;
 }

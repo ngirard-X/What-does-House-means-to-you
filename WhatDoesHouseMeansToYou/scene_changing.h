@@ -1,49 +1,40 @@
-#include <SFML/Graphics.hpp>
-#include <SFML/Audio.hpp>
-#include <string>
-
 #pragma once
-class scene_changing
-{
-private:
-	std::string nextSceneId;
+#include <SFML/Graphics.hpp>
+#include <unordered_map>
+#include <string>
+#include <vector>
 
-	int chapter;
-
-	float transitionDuration;
-
-	bool waitForClick;
-
+struct Dialogue {
 public:
-	enum class chapters
-		{
-		prologue,
-		chapter1,
-		chapter2,
-		chapter3,
-		chapter4,
-		chapter5,
-		chapter6
-	};
+    std::string speaker;
+    std::string text;
+};
 
-	enum class transitions
-	{
-		fadeIn,
-		fadeOut,
-		slideLeft,
-		slideRight,
-	};
-
+struct SceneData {
 public:
-	scene_changing();
-	~scene_changing() = default;
+    std::string id;
+    std::string bgPath;
+    std::string charPath;
+    std::string musicPath;
+    std::string nextScene;
 
-	void changeScene(const std::string& sceneId, sf::Texture& backgroundTexture, sf::Sprite& backgroundSprite, sf::Music& music, sf::Text& dialogue);
+    std::vector<Dialogue> dialogues;
+
+    bool isEnd = false;
+};
+
+class Scene_changing {
+public:
+    Scene_changing();
+
+    bool load(const std::string& sceneId, sf::Texture& bgTex, sf::Sprite& bgSprite,
+        sf::Texture& charTex, sf::Sprite& charSprite, sf::Text& speaker, sf::Text& dialogue);
+
+    const SceneData* get(const std::string& sceneId) const;
 
 private:
-	transitions currentTransition = transitions::fadeIn;
+    void buildScenes();
 
-	//pour la méthode de fade je dois faire par rapport à la transparence que soit elle part de 0 puis vers vers 1 pour fade in et fade out inverse je fait :
-	// transparence = transparence_min - (transparence_max - transparence_min) * delta_time;
-	//pour le slide pareil interpolation linéaire mais au lieu de transparance une pour le x et une pour le y :
+private:
+    std::unordered_map<std::string, SceneData> scenes;
 };

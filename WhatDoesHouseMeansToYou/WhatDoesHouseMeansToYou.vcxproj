@@ -127,18 +127,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="behavior_tree.cpp" />
     <ClCompile Include="choice.cpp" />
+    <ClCompile Include="credits.cpp" />
     <ClCompile Include="dialogues_lines.cpp" />
-    <ClCompile Include="game.cpp" />
+    <ClCompile Include="Menu.cpp" />
     <ClCompile Include="scene.cpp" />
     <ClCompile Include="scene_changing.cpp" />
     <ClCompile Include="story_state.cpp" />
     <ClCompile Include="WhatDoesHouseMeansToYou.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="behavior_tree.h" />
     <ClInclude Include="choice.h" />
+    <ClInclude Include="credits.h" />
     <ClInclude Include="dialogues_lines.h" />
-    <ClInclude Include="game.h" />
+    <ClInclude Include="Menu.h" />
     <ClInclude Include="scene.h" />
     <ClInclude Include="scene_changing.h" />
     <ClInclude Include="story_state.h" />

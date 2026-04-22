@@ -1,16 +1,14 @@
-#include <string>
-#include <unordered_map>
-#include <unordered_set>
-
 #pragma once
-class story_state
+#include <string>
+
+struct StoryState
 {
-private:
-	bool readArticle;
-	bool isRoadClicked;
-	bool isPrisonDoorClicked;
-	bool isPrisonnerClicked;
+public:
+    bool helpedOldMan = false;
+    bool denounced = false;
+    bool stayedInTown = false;
 
+    void reset();
 
+    std::string computeEnding() const;
 };
-
