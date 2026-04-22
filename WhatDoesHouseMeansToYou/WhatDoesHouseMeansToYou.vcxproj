@@ -103,11 +103,12 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)external/include</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>sfml-main.lib;sfml-graphics.lib;sfml-system.lib;sfml-window.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>sfml-main-d.lib;sfml-graphics-d.lib;sfml-system-d.lib;sfml-window-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)external/lib</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -126,7 +127,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="choice.cpp" />
+    <ClCompile Include="dialogues_lines.cpp" />
+    <ClCompile Include="game.cpp" />
+    <ClCompile Include="scene.cpp" />
+    <ClCompile Include="scene_changing.cpp" />
+    <ClCompile Include="story_state.cpp" />
     <ClCompile Include="WhatDoesHouseMeansToYou.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="choice.h" />
+    <ClInclude Include="dialogues_lines.h" />
+    <ClInclude Include="game.h" />
+    <ClInclude Include="scene.h" />
+    <ClInclude Include="scene_changing.h" />
+    <ClInclude Include="story_state.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
